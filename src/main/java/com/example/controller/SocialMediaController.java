@@ -1,4 +1,8 @@
 package com.example.controller;
+// Adding imports for necessary annotations
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import com.example.service.AccountService;
 
 
 /**
@@ -7,6 +11,11 @@ package com.example.controller;
  * where applicable as well as the @ResponseBody and @PathVariable annotations. You should
  * refer to prior mini-project labs and lecture materials for guidance on how a controller may be built.
  */
+
+@RestController
 public class SocialMediaController {
+    private AccountService accountService;
+
+    // Setting up handler for #1: processing new User registration
 
 }
