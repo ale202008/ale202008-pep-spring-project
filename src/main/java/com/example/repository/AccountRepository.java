@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface AccountRepository extends JpaRepository<Account, Long>{
     // Created custom query to find Account record via username 
     Optional<Account> findByUsername(String username);
+    Optional<Account> findByUsernameAndPassword(String username, String password);
 }
