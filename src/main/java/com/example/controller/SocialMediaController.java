@@ -1,8 +1,10 @@
 package com.example.controller;
+import org.springframework.http.ResponseEntity;
 // Adding imports for necessary annotations
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import com.example.service.AccountService;
+import com.example.service.*;
+import com.example.entity.*;
 
 
 /**
@@ -16,6 +18,11 @@ import com.example.service.AccountService;
 public class SocialMediaController {
     private AccountService accountService;
 
-    // Setting up handler for #1: processing new User registration
 
+    // Setting up handler for #1: processing new User registration
+    @GetMapping("/register")
+    public @ResponseBody ResponseEntity<String> register(@RequestBody Account account){
+
+        return null;
+    }
 }
