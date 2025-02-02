@@ -27,9 +27,12 @@ public class AccountService {
     // Implementing method to register new Account record to AccountRespository
     @Transactional
     public Account registerAccount(Account account){
-        System.out.print("WE GOT HERE 1");
         return accountRespository.save(account);
     }
 
+    // Implemented a method to check if AccountRepository has an Account object
+    public Account getAccount(Account account){
+        return accountRespository.findByUsernameAndPassword(account.getUsername(), account.getPassword()).get();
+    }
     
 }
