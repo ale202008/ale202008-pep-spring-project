@@ -1,13 +1,10 @@
 package com.example.controller;
-import org.springframework.http.ResponseEntity;
 // Adding imports for necessary annotations
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.example.service.*;
 import com.example.entity.*;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 /**
@@ -110,9 +107,9 @@ public class SocialMediaController {
 
 
     // Implemented handler for /messages GET
-    @GetMapping("/messsages")
-    public ResponseEntity<Message> message(){
-        return null;
+    @GetMapping("/messages")
+    public ResponseEntity<List<Message>> message(){
+        return ResponseEntity.status(200).body(messageService.getAllMessages());
     }
 
     /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES END */
