@@ -39,4 +39,14 @@ public class MessageService {
     public Message getMessageByid(int id){
         return messageRepository.findById(id).orElse(null);
     }
+
+
+    // Implemented method to delete a message by its id
+    @Transactional
+    public Integer deleteMessageByid(int id){
+        int rowsBefore = (int) messageRepository.count();
+        messageRepository.deleteById(id);
+        int rowsAfter = (int) messageRepository.count();
+        return rowsBefore - rowsAfter;
+    }
 }

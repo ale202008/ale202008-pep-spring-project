@@ -113,11 +113,12 @@ public class SocialMediaController {
     }
 
 
-    // Implemented handler for /messages/{messageId}
+    // Implemented handler for /messages/{messageId} GET
     @GetMapping("/messages/{messageId}")
     public ResponseEntity<Message> getMessageById(@PathVariable int messageId){
         return ResponseEntity.status(200).body(messageService.getMessageByid(messageId));
     }
 
+    
     /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES END */
 }
