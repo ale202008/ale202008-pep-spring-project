@@ -19,6 +19,6 @@ public interface MessageRepository extends JpaRepository<Message, Integer>{
     @Query("UPDATE Message msg SET msg.messageText = :messageText WHERE msg.id = :id")
     void updateMessageById(@Param("id") Integer id, @Param("messageText") String messageText);
 
-    @Query("SELECT * Message WHERE postedBy = :accountId")
+    @Query("SELECT msg FROM Message msg WHERE msg.postedBy = :accountId")
     List<Message> findAllByAccountId(@Param("accountId") Integer accountId);
 }
