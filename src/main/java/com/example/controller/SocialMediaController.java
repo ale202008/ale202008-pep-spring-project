@@ -119,6 +119,7 @@ public class SocialMediaController {
         return ResponseEntity.status(200).body(messageService.getMessageByid(messageId));
     }
 
+
     // Implemented handler for /messages/{messageId} DELETE
     @DeleteMapping("/messages/{messageId}")
     public ResponseEntity<Integer> deleteMessageById(@PathVariable int messageId){
@@ -131,5 +132,6 @@ public class SocialMediaController {
 
     }
 
+    
     /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES END */
 }

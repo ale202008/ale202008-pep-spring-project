@@ -3,8 +3,15 @@ package com.example.repository;
 import org.springframework.stereotype.Repository;
 import com.example.entity.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 import java.util.Optional;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer>{
+    @Modifying
+    @Query("UPDATE Message msg SET msg.messageText WHERE msg.id = :id")
+    void updateMessageById(@Param("id") Integer id, @Param("messageText") String messageText);
 }
