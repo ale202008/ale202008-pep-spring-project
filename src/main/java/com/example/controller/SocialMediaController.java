@@ -33,7 +33,7 @@ public class SocialMediaController {
     /* REQUEST MAPPINGS AND HANDLERS FOR ACCOUNT START */
 
 
-    // Setting up handler for #1: processing new User registration
+    // Setting up handler for #1: processing new User registration POST
     @PostMapping("/register")
     public ResponseEntity<Account> register(@RequestBody Account account){
         System.out.print("BEGINNING OF REGISTER METHOD");
@@ -65,7 +65,7 @@ public class SocialMediaController {
     }
 
 
-    // Implementing handler for /login
+    // Implementing handler for /login POST
     @PostMapping("/login")
     public ResponseEntity<Account> login(@RequestBody Account account){
         try {
@@ -87,7 +87,7 @@ public class SocialMediaController {
     /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES START */
 
 
-    // Implemented handler for /messages
+    // Implemented handler for /messages POST
     @PostMapping("/messages")
     public ResponseEntity<Message> message(@RequestBody Message message){
         if ((message.getMessageText().isBlank()) || (message.getMessageText().length()) > 255 || (accountService.getAccountById(message.getPostedBy()) == null)){
@@ -106,6 +106,13 @@ public class SocialMediaController {
         }
 
         return ResponseEntity.status(400).body(null);
+    }
+
+
+    // Implemented handler for /messages GET
+    @GetMapping("/messsages")
+    public ResponseEntity<Message> message(){
+        return null;
     }
 
     /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES END */

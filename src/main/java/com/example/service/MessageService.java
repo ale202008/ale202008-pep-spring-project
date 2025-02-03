@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.example.repository.MessageRepository;
 import com.example.entity.Message;
 import java.util.Optional;
+import java.util.List;
+
 
 @Service
 public class MessageService {
@@ -24,5 +26,11 @@ public class MessageService {
     @Transactional
     public Message createMessage(Message message){
         return messageRepository.save(message);
+    }
+
+    
+    // Implemented method to get all messages
+    public List<Message> getAllMessages(){
+        return messageRepository.findAll();
     }
 }
