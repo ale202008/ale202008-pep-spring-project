@@ -41,6 +41,12 @@ public class MessageService {
     }
 
 
+    // Implemented method to see if repository contains message by id
+    public Boolean messageExistsById(int id){
+        return messageRepository.existsById(id);
+    }
+
+
     // Implemented method to delete a message by its id
     @Transactional
     public Integer deleteMessageByid(int id){
