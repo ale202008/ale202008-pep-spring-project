@@ -31,7 +31,7 @@ public class AccountService {
     }
 
     // Implemented a method to check if AccountRepository has an Account object
-    public Account getAccount(Account account){
+    public Account getAccountByUsernameAndLogin(Account account){
         return accountRespository.findByUsernameAndPassword(account.getUsername(), account.getPassword()).get();
     }
     

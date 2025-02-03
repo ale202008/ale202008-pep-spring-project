@@ -30,8 +30,10 @@ public class SocialMediaController {
         this.messageService = messageService;
     }
 
+    /* REQUEST MAPPINGS AND HANDLERS FOR ACCOUNT START */
+
+
     // Setting up handler for #1: processing new User registration
-    
     @PostMapping("/register")
     public ResponseEntity<Account> register(@RequestBody Account account){
         System.out.print("BEGINNING OF REGISTER METHOD");
@@ -58,8 +60,27 @@ public class SocialMediaController {
             e.printStackTrace();
         }
 
+        // Return a 500 status code indicating an error on the server-side
         return ResponseEntity.status(500).body(null);
     }
 
 
+    // Implementing handler for /login
+    @PostMapping("/login")
+    public ResponseEntity<Account> login(@RequestBody Account account){
+        try {
+            Account loginAccount = accountService.getAccountByUsernameAndLogin(account);
+            if (loginAccount != null){
+                return ResponseEntity.status(200).body(loginAccount);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        // Return status 401 if no account could be found given the information
+        return ResponseEntity.status(401).body(null);
+    }
+
+    /* REQUEST MAPPINGS AND HANDLERS FOR ACCOUNT END */
 }
