@@ -90,13 +90,16 @@ public class SocialMediaController {
     // Implemented handler for /messages
     @PostMapping("/messages")
     public ResponseEntity<Message> message(@RequestBody Message message){
-        if ((message.getMessageText().isBlank()) || (message.getMessageText().length()) < 255 || (accountService.getAccountById(message.getPostedBy()) != null)){
+        if ((message.getMessageText().isBlank()) || (message.getMessageText().length()) > 255 || (accountService.getAccountById(message.getPostedBy()) == null)){
             return ResponseEntity.status(400).body(null);
         }
 
         // try-block to attempt in creating a new message after if conditionals
         try{
-            
+            Message newMessage = messageService.createMessage(message);
+            if (newMessage != null){
+                return ResponseEntity.status(200).body(newMessage);
+            }
         }
         catch(Exception e){
             e.printStackTrace();

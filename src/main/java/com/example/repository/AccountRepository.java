@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 @Repository
-public interface AccountRepository extends JpaRepository<Account, Long>{
+public interface AccountRepository extends JpaRepository<Account, Integer>{
     // Created custom query to find Account record via username 
     Optional<Account> findByUsername(String username);
     Optional<Account> findByUsernameAndPassword(String username, String password);

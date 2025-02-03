@@ -42,6 +42,7 @@ public class AccountService {
     
     // Implemented a method to get an account via id
     public Account getAccountById(int id){
-        return accountRespository.getById(Long.valueOf(id));
+        System.out.println("INSIDE ACCOUNT BY ID");
+        return accountRespository.findById(id).orElse(null);
     }
 }
