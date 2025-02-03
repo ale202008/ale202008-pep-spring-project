@@ -37,6 +37,6 @@ public class MessageService {
     
     // Implemented method to get message by id
     public Message getMessageByid(int id){
-        return messageRepository.findById(id).get();
+        return messageRepository.findById(id).orElse(null);
     }
 }
