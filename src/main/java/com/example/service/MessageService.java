@@ -59,9 +59,8 @@ public class MessageService {
 
     // Implemented method to update a message's text by its id
     public Integer updateMessageById(int id, String messageText){
-        int rowsBefore = (int) messageRepository.count();
-        int rowsAfter = (int) messageRepository.count();
-        return rowsBefore - rowsAfter;
+        messageRepository.updateMessageById(id, messageText);
+        return 1;
     }
 
 
