@@ -90,7 +90,19 @@ public class SocialMediaController {
     // Implemented handler for /messages
     @PostMapping("/messages")
     public ResponseEntity<Message> message(@RequestBody Message message){
-        return null;
+        if ((message.getMessageText().isBlank()) || (message.getMessageText().length()) < 255 || (accountService.getAccountById(message.getPostedBy()) != null)){
+            return ResponseEntity.status(400).body(null);
+        }
+
+        // try-block to attempt in creating a new message after if conditionals
+        try{
+            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.status(400).body(null);
     }
 
     /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES END */

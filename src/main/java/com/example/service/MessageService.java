@@ -1,6 +1,7 @@
 package com.example.service;
 import org.springframework.beans.factory.annotation.Autowired;
 // Adding imports
+import org.springframework.transaction.annotation.*;
 import org.springframework.stereotype.Service;
 import com.example.repository.MessageRepository;
 import com.example.entity.Message;
@@ -20,6 +21,7 @@ public class MessageService {
 
 
     // Implemented method to save new Message in messageRepository
+    @Transactional
     public Message createMessage(Message message){
         return messageRepository.save(message);
     }
