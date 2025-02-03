@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 import java.util.Optional;
+import java.util.List;
 
 
 
@@ -19,5 +20,5 @@ public interface MessageRepository extends JpaRepository<Message, Integer>{
     void updateMessageById(@Param("id") Integer id, @Param("messageText") String messageText);
 
     @Query("SELECT * Message WHERE postedBy = :accountId")
-    void findAllByAccountId(@Param("accountId") Integer accountId);
+    List<Message> findAllByAccountId(@Param("accountId") Integer accountId);
 }
