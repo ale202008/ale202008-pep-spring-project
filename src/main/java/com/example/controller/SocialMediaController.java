@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.service.*;
 import com.example.entity.*;
 import java.util.List;
+
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
@@ -132,6 +134,18 @@ public class SocialMediaController {
 
     }
 
-    
+
+    // Implemented handler for /messages/{messageId} PATCH
+    @PatchMapping("/messages/{messageId}")
+    public ResponseEntity<Integer> updateMessageById(@RequestBody Message message, @PathVariable int messageId){
+        if (messageService.messageExistsById(messageId) && !message.getMessageText().trim().isBlank() && message.getMessageText().length() <= 255){
+            return ResponseEntity.status(200).body(messageService.updateMessageById(messageId, message.getMessageText()));
+        }
+        else{
+            return ResponseEntity.status(400).body(null);
+        }
+    }
+
+
     /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES END */
 }
