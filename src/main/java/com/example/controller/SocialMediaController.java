@@ -148,4 +148,13 @@ public class SocialMediaController {
 
 
     /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES END */
+    /* REQUEST MAPPINGS AND HANDLERS FOR BOTH ACCOUT AND MESSAGES */
+
+
+    @GetMapping("/account/{accountId}/messages")
+    public ResponseEntity<List<Message>> getAllMessagesByAccountId(@PathVariable int accountId){
+        return null;
+    }
+
+
 }

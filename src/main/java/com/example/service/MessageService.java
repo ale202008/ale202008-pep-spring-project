@@ -64,4 +64,8 @@ public class MessageService {
     }
 
 
+    // Implemented method to get all messages by account id
+    public List<Message> getAllMessagesByAccountId(int id){
+        return null;
+    }
 }
