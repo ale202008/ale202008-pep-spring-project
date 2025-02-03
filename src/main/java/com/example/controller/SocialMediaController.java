@@ -82,5 +82,16 @@ public class SocialMediaController {
         return ResponseEntity.status(401).body(null);
     }
 
+
     /* REQUEST MAPPINGS AND HANDLERS FOR ACCOUNT END */
+    /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES START */
+
+
+    // Implemented handler for /messages
+    @PostMapping("/messages")
+    public ResponseEntity<Message> message(@RequestBody Message message){
+        return null;
+    }
+
+    /* REQUEST MAPPINGS AND HANDLERS FOR MESSAGES END */
 }

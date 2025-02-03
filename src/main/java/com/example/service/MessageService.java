@@ -11,9 +11,16 @@ public class MessageService {
     // Initialize MessageRepository field
     private MessageRepository messageRepository;
 
+
     // Implementing constructor for service to initalize AccountRepository
     @Autowired
     public MessageService(MessageRepository messageRepository){
         this.messageRepository = messageRepository;
+    }
+
+
+    // Implemented method to save new Message in messageRepository
+    public Message createMessage(Message message){
+        return messageRepository.save(message);
     }
 }
